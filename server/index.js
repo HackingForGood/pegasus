@@ -14,10 +14,7 @@ app.use(bodyParser.json());
 plaid(app);
 donor(app);
 
-
-app.get('/', (request, response) => {
-  response.send('HOME')
-});
+app.use('/', express.static('public'))
 
 
 let port = process.env.port || 9001;
