@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/HackingForGood/the-derelicts#readme",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "firebase": "^4.1.2"
   },
   "devDependencies": {
     "dotenv": "^4.0.0"
