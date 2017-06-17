@@ -8,6 +8,9 @@ yarn-error.log*
 # vscode
 .vscode/
 
+# secrets
+config/admin.json
+
 # Runtime data
 pids
 *.pid
