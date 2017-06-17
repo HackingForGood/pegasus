@@ -24,8 +24,18 @@ module.exports = function( app ) {
   });
 
   app.put('/donors/:id', ( req, res ) => {
+
     let id = req.params._id;
-    let ref = db.ref(`/donors/${ id }`);
+    let ref = db.ref(`/donors/${ id }`).on('value', snap => {
+      let oldProps = snap.val();
+      if ( !oldProps ) {
+        return res.sendStatus(200);
+      }
+      let newBody = Object.assign({}, oldProps, req.body );
+      ref.update( newBody );
+      res.sendStatus(200)
+    });
+
   });
 
   app.delete('/donors/:id', ( req, res ) => {
