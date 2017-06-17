@@ -1,15 +1,14 @@
 
 var express = require('express');
-var bodyParser = require('body-parser');
 var moment = require('moment');
 var plaid = require('plaid');
 
 let port = process.env.port || 9001;
 
-var APP_PORT = process.env.APP_PORT || 8000; 
+var APP_PORT = process.env.APP_PORT || 8000;
 var PLAID_CLIENT_ID = process.env.PALID_CLIENT_ID || 'PLAID_CLIENT_ID';
 var PLAID_SECRET = process.env.PLAID_SECRET || 'PLAID_SECRET';
-var PLAID_PUBLIC_KEY = process.env.PLAID_PUBLIC_KEY || 'PLAID_PUBLIC_KEY'; 
+var PLAID_PUBLIC_KEY = process.env.PLAID_PUBLIC_KEY || 'PLAID_PUBLIC_KEY';
 var PLAID_ENV = process.env.PLAID_ENV || 'sandbox';
 
 var FAKE_PLAID_DATA = require('./FAKE_PLAID_DATA.json');
@@ -30,12 +29,6 @@ var client = new plaid.Client(
 
 function main(app) {
 
-  app.use(bodyParser.urlencoded({
-    extended: false
-  }));
-
-  app.use(bodyParser.json());
-
   app.post('/get_access_token', function(request, response, next) {
 
 
@@ -55,7 +48,7 @@ function main(app) {
 
       ACCESS_TOKEN = tokenResponse.access_token;
       ITEM_ID = tokenResponse.item_id;
-      
+
       // TODO: Store ACCESS_TOKEN and ITEM_ID in database
 
       response.send({
@@ -88,14 +81,14 @@ function main(app) {
           error: error
         });
       }
-      
+
       // Handle transactions and calculate remainders
       let totalAmount = calculateRemainders(transactionsResponse);
 
       response.send({
         startDate: startDate,
         enddate: enddate,
-        totalamount: totalamount 
+        totalamount: totalamount
       });
 
       console.log('pulled ' + transactionsResponse.transactions.length + ' transactions');
@@ -108,22 +101,22 @@ function main(app) {
     response.send({
         startDate: startDate,
         endDate: endDate,
-        totalAmount: totalAmount 
+        totalAmount: totalAmount
     });
   });
 
   function calculateRemainders(customerDetails) {
     let transactions = customerDetails.transactions;
-    
+
     let total = 0;
-    
+
     for (let i = 0; i < transactions.length; i++) {
       total += 1 - transactions[i].amount % 1;
     }
-    
+
     return total.toFixed(2);
   }
-  
+
 
 }
 

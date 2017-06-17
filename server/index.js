@@ -1,9 +1,18 @@
 let express = require('express');
 let routes = require('./routes');
 var app = express();
-
+var bodyParser = require('body-parser');
 let plaid = require('./routes/plaid');
+let donor = require('./routes/donor');
+
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
+app.use(bodyParser.json());
+
 plaid(app);
+donor(app);
 
 
 app.get('/', (request, response) => {
