@@ -6,6 +6,11 @@ let plaid = require('./routes/plaid');
 plaid(app);
 
 
+require('dotenv')
+  .config();
+
+routes(app);
+
 app.get('/', (request, response) => {
   response.send('HOME')
 });
