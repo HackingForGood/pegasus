@@ -1,4 +1,5 @@
 var uiConfig = {
+  signInSuccessUrl: 'donor.html',
   signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.TwitterAuthProvider.PROVIDER_ID,
