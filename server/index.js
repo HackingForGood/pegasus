@@ -4,6 +4,7 @@ var app = express();
 var bodyParser = require('body-parser');
 let plaid = require('./routes/plaid');
 let donor = require('./routes/donor');
+let recipient = require('./routes/recipient');
 
 app.use(bodyParser.urlencoded({
   extended: false
@@ -13,6 +14,7 @@ app.use(bodyParser.json());
 
 plaid(app);
 donor(app);
+recipient(app);
 
 app.use('/', express.static('public'))
 
