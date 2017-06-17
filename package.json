@@ -4,7 +4,8 @@
   "description": "Microtransactions for your cause",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./server"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/HackingForGood/the-derelicts/issues"
   },
-  "homepage": "https://github.com/HackingForGood/the-derelicts#readme"
+  "homepage": "https://github.com/HackingForGood/the-derelicts#readme",
+  "dependencies": {
+    "express": "^4.15.3"
+  },
+  "devDependencies": {
+    "dotenv": "^4.0.0"
+  }
 }
