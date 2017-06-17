@@ -20,6 +20,9 @@
   "homepage": "https://github.com/HackingForGood/the-derelicts#readme",
   "dependencies": {
     "express": "^4.15.3",
+    "body-parser": "^1.17.2",
+    "moment": "^2.18.1",
+    "plaid": "^2.0.4",
     "firebase": "^4.1.2"
   },
   "devDependencies": {
