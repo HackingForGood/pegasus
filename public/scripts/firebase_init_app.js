@@ -12,7 +12,8 @@ initApp = function() {
       user.getToken().then(function(accessToken) {
         document.getElementById('sign-in-status').textContent = 'Signed in';
         document.getElementById('sign-in').textContent = 'Sign out';
-        document.getElementById('account-details').textContent = JSON.stringify({
+
+        let userData ={
           displayName: displayName,
           email: email,
           emailVerified: emailVerified,
@@ -21,7 +22,9 @@ initApp = function() {
           uid: uid,
           accessToken: accessToken,
           providerData: providerData
-        }, null, '  ');
+        };
+        document.getElementById('account-details').textContent = JSON.stringify( userData, null, '  ');
+        $.post('/donors', userData );
       });
     } else {
       // User is signed out.
