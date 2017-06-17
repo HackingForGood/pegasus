@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 plaid(app);
 donor(app);
 
-app.use('/public', express.static('../public'))
+app.use('/', express.static('public'))
 
 
 let port = process.env.port || 9001;
