@@ -1,16 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset='UTF-8'>
-    <title>the derelicts</title>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css' type='text/css'>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.1.1/firebaseui.css" />
-    <link rel='stylesheet' href='css/style.css' type='text/css'>
+    <meta charset="UTF-8">
+    <script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+    <script src='scripts/firebase_setup.js'></script>
     <script src="https://cdn.firebase.com/libs/firebaseui/2.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.1.1/firebaseui.css" />
+    <script src='scripts/firebase_ui_config.js'></script>
+    <script src='scripts/firebase_init_app.js'></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+    <title>The Derelicts</title>
   </head>
   <body>
-    <h1>HELLO WORLD!</h1>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">The Derelicts</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li id="sign-in-status"></li>
+          <li id="sign-in"></li>
+          <li id="account-details"></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="firebaseui-auth-container"></div>
   </body>
-  <script src='https://www.gstatic.com/firebasejs/4.1.2/firebase.js'></script>
-  <script src='public/scripts/firebase_setup.js'></script>
 </html>
