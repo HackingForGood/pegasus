@@ -3,15 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Plaid Walkthrough Example</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.1.2/firebase.js"></script>
+<script src='scripts/firebase_setup.js'></script>
+<script src="https://cdn.firebase.com/libs/firebaseui/2.1.1/firebaseui.js"></script>
+<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.1.1/firebaseui.css" />
+<script src='scripts/firebase_ui_config.js'></script>
+<script src='scripts/firebase_init_app.js'></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="./styles/donor.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div id="header">
-    <div id="title">
-      <p>Title</p>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">The Derelicts</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li id="sign-in" class="btn right"></li>
+      </ul>
     </div>
-  </div>
+  </nav>
+
   <div id="navbar">
     <div id="results-tab" class="nav-tab">
       <p>Results</p>
@@ -37,7 +53,7 @@
         you'll be guided through an authentication process.
       </p>
       <p>
-        First Platypus Bank - user_good - pass_good	
+        First Platypus Bank - user_good - pass_good
       </p>
 
       <button id="link-btn">Link Account</button>
@@ -59,7 +75,7 @@
     </div>
 
   </div>
-  
+
   <div id="results-pane">
     <div id="chart_div"></div>
   </div>

@@ -9,28 +9,20 @@ initApp = function() {
       var uid = user.uid;
       var phoneNumber = user.phoneNumber;
       var providerData = user.providerData;
-      user.getToken().then(function(accessToken) {
-        document.getElementById('sign-in-status').textContent = 'Signed in';
+      user.getIdToken().then(function(accessToken) {
         document.getElementById('sign-in').textContent = 'Sign out';
-        document.getElementById('account-details').textContent = JSON.stringify({
-          displayName: displayName,
-          email: email,
-          emailVerified: emailVerified,
-          phoneNumber: phoneNumber,
-          photoURL: photoURL,
-          uid: uid,
-          accessToken: accessToken,
-          providerData: providerData
-        }, null, '  ');
       });
     } else {
       // User is signed out.
-      document.getElementById('sign-in-status').textContent = 'Signed out';
-      document.getElementById('sign-in').textContent = 'Sign in';
-      document.getElementById('account-details').textContent = 'null';
+      document.getElementById('sign-in').textContent = 'You are not signed in';
     }
   }, function(error) {
     console.log(error);
+  });
+  firebase.auth().signOut().then(function() {
+    console.log('Signed Out');
+  }, function(error) {
+    console.error('Sign Out Error', error);
   });
 };
 
